@@ -80,7 +80,7 @@ namespace RickAndMortyBack.Services
             character.Origin = response.Origin.Name;
             character.Location = response.Location.Name;
             character.Image = response.Image;
-            character.Episodes = response.Episode; // 🔥 AQUÍ ESTABA EL PROBLEMA
+            character.Episodes = response.Episode; 
 
             if (existing == null)
                 _db.Characters.Add(character);
