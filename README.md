@@ -1,46 +1,90 @@
-# Getting Started with Create React App
+# Rick & Morty Explorer
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Proyecto que consume la Rick & Morty API utilizando un **backend intermedio en ASP.NET Core**, con persistencia en **MySQL** y frontend en **React**, siguiendo un enfoque tipo **Backend as a Service (BaaS)**.
 
-## Available Scripts
+---
 
-In the project directory, you can run:
+Mi objetivo es:
 
-### `npm start`
+Demostrar la capacidad de:
+- Consumir una API externa a partir de su documentación oficial
+- Implementar un backend intermedio como capa de integración
+- Manejar paginación, filtros, navegación a detalle y estados de interfaz
+- Persistir información relevante en base de datos
+- Separar responsabilidades por capas
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+---
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+Funcionalidades
 
-### `npm test`
+### Personajes
+- Listado con imagen, nombre, estado, especie y ubicación
+- Filtros por nombre, estado y especie
+- Paginación
+- Manejo de estados: cargando, error y sin resultados
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### Detalle de personaje
+- Ruta `/characters/:id`
+- Información completa del personaje
+- Listado de episodios en los que aparece
 
-### `npm run build`
+---
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Arquitectura
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### Backend (ASP.NET Core)
+- Controllers
+- Services
+- Models
+- Data (Entity Framework)
+- Consumo de Rick & Morty API mediante HttpClient
+- Persistencia en MySQL
+- Manejo centralizado de errores
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### Frontend (React)
+- Separación por páginas, componentes y servicios
+- Consumo exclusivo del backend propio
+- React Router para navegación
+- Manejo de estados de carga y error
 
-### `npm run eject`
+---
+Base de datos
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+Contiene:
+- Personajes
+- Estado
+- Especie
+- Género
+- Origen
+- Ubicación
+- Episodios asociados
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### Script de ejemplo
+CREATE TABLE Characters (
+    Id INT PRIMARY KEY,
+    Name VARCHAR(100),
+    Status VARCHAR(50),
+    Species VARCHAR(50),
+    Gender VARCHAR(50),
+    Origin VARCHAR(100),
+    Location VARCHAR(100),
+    Image TEXT
+);
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+Tecnologías usadas
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+*ASP.NET Core
 
-## Learn More
+*Entity Framework Core
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+*MySQL
+
+*React
+
+*TypeScript
+
+*TailwindCSS
+
+*Rick & Morty API
 
 To learn React, check out the [React documentation](https://reactjs.org/).
